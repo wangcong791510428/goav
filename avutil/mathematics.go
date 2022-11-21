@@ -6,7 +6,7 @@ package avutil
 //#include <stdlib.h>
 import "C"
 import "unsafe"
-import "github.com/giorgisio/goav/avcodec"
+import "github.com/wangcong791510428/goav/avcodec"
 
 //Return a string describing the media_type enum, NULL if media_type is unknown.
 func AvRescaleQ(a int64, bq Rational, cq Rational) int64 {
