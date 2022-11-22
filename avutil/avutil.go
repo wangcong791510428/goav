@@ -10,6 +10,7 @@ package avutil
 //#cgo pkg-config: libavutil
 //#include <libavutil/avutil.h>
 //#include <stdlib.h>
+//#include <stdio.h>
 import "C"
 import (
 	"unsafe"
@@ -70,4 +71,10 @@ func AvFopenUtf8(p, m string) *File {
 //Return the fractional representation of the internal time base.
 func AvGetTimeBaseQ() Rational {
 	return (Rational)(C.av_get_time_base_q())
+}
+
+
+//实现内存拷贝
+func AvMemcpy(des *uint8, src *uint8, len int) {
+  C.memcpy((unsafe.Pointer(des)), (unsafe.Pointer(src)), C.size_t(len))
 }

@@ -142,6 +142,10 @@ func (s *Context) AvformatCloseInput() {
 	C.avformat_close_input((**C.struct_AVFormatContext)(unsafe.Pointer(&s)))
 }
 
+func AvformatCloseInput(s **Context) {
+  C.avformat_close_input((**C.struct_AVFormatContext)(unsafe.Pointer(s)))
+}
+
 //Allocate the stream private data and write the stream header to an output media file.
 func (s *Context) AvformatWriteHeader(o **avutil.Dictionary) int {
 	return int(C.avformat_write_header((*C.struct_AVFormatContext)(s), (**C.struct_AVDictionary)(unsafe.Pointer(o))))

@@ -60,6 +60,11 @@ func (ctxt *Context) AvcodecFreeContext() {
 	C.avcodec_free_context((**C.struct_AVCodecContext)(unsafe.Pointer(ctxt)))
 }
 
+//Free the codec context and everything associated with it and write NULL to the provided pointer.
+func  AvcodecFreeContext(ctxt **Context) {
+	C.avcodec_free_context((**C.struct_AVCodecContext)(unsafe.Pointer(ctxt)))
+}
+
 //Set the fields of the given Context to default values corresponding to the given codec (defaults may be codec-dependent).
 func (ctxt *Context) AvcodecGetContextDefaults3(c *Codec) int {
 	return int(C.avcodec_get_context_defaults3((*C.struct_AVCodecContext)(ctxt), (*C.struct_AVCodec)(c)))
